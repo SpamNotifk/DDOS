@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Attack Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-container" id="login-page">
+        <h1>اهلا وسهلا ،في اداة DDOS للهجمات الالكترونيه.</h1>
+        <input type="text" id="login-code" placeholder="Enter Access Code">
+        <button id="login-button">الدخول</button>
+    </div>
+
+    <!-- Main Page -->
+    <div class="main-container hidden" id="main-page">
+        <h1>اضف هنا الموقع الالكتروني الذي تود الهجوم عليه</h1>
+        <input type="text" id="target-url" placeholder="Enter target URL">
+        <button id="start-attack">هجوم..</button>
+        <div id="log-container">
+            <h3>بدأ الهجوم</h3>
+            <div id="log"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>تم تطوير الموقع بواسطة صـوفي للتواصل مع المطور Telegram: @caser7</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
